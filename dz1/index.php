@@ -52,7 +52,9 @@ if (($age > 18) && ($age <= 65)) {
 //Задание5
 $day = 3;
 switch ($day) {
-    case ($day == 1 || $day == 2 || $day == 3 || $day == 4 || $day == 5):
+    // Группирование условий сокращает код и делает его более читаемым
+    case ($day >= 1 && $day <= 5):
+//    case ($day == 1 || $day == 2 || $day == 3 || $day == 4 || $day == 5):
         echo 'Это рабочий день<br>';
         break;
     case 6:
@@ -99,16 +101,20 @@ $new_array = array("BMW" => $bmw, "Opel" => $opel, "Toyota" => $toyota);
 //Задание7
 for ($i = 1; $i < 10; $i++) {
     for ($j = 1; $j <= 10; $j++) {
+        // Условие (2) задачи выполнено
         if (($i % 2 == 0) && ($j % 2 == 0)) {
             echo "&nbsp;&nbsp;(" . ($i * $j) . ")&nbsp;&nbsp;";
+        // Условие (4) задачи выполнено
         } else {
             echo "&nbsp;&nbsp;" . ($i * $j) . "&nbsp;&nbsp;";
         }
+        // Где условие (3)?
     }
     echo "<br>";
 }
 
 //Задание8
+// Задание выполнено частично
 $str = "slovo1 slovo2 slovo3";
 echo "Строка: " . $str . "<br>";
 $arr = explode(" ", $str);
