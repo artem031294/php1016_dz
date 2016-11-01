@@ -1,19 +1,48 @@
 <?php
     $num = array(1 , 2 , 3 , 4 , 5);
     function name($numbers , $action ) {
-        if (typeof($numbers != 'array')) {
+        if (gettype($numbers) != 'array') {
             echo "<p>Можно использовать только с массивами!</p>";
             return;
         }
-        if (typeof($action) != 'string') {
+        if (gettype($action) != 'string') {
             echo "<p>Действие должно быть строкой</p>";
             return;
         }
         switch ($action) {
-            case '':
+            case '+':
+                $sum = 0;
+                for ($i = 0; $i < count($numbers); $i++) {
+                    $sum += $numbers[$i];
+                }
+                return $sum;
+                break;
+            case '-':
+                $sum = $numbers[0];
+                for ($i = 1; $i < count($numbers); $i++) {
+                    $sum -= $numbers[$i];
+                }
+                return $sum;
+                break;
+            case '*':
+                $sum = 1;
+                for ($i = 0; $i < count($numbers); $i++) {
+                    $sum *= $numbers[$i];
+                }
+                return $sum;
+                break;
+            case '/':
+                $sum = $numbers[0];
+                for ($i = 1; $i < count($numbers); $i++) {
+                    $sum /= $numbers[$i];
+                }
+                return $sum;
                 break;
             default:
-                echo "<p>неизвестное действие</p>";
+                return "неизвестное действие";
                 break;
         }
     }
+    $test = name($num, 'art');
+    print_r($num);
+    echo "<p>Результат выполнения функции: " . $test . "</p>";
