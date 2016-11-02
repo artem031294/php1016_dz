@@ -44,5 +44,4 @@
         }
     }
     $test = name($num, 'art');
-    print_r($num);
     echo "<p>Результат выполнения функции: " . $test . "</p>";
