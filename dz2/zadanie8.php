@@ -1,4 +1,6 @@
 <?php
+// Не принято
+// Некорректная работа: "RX packets: errors:150 d:)ropped:0 overruns:0 frame:0."
     function checkRegular($string) {
         if (gettype($string) != 'string') {
             return "Передаваемое значение должно быть строкой.";
@@ -14,4 +16,4 @@
             echo "Сеть есть";
         }
     }
-    checkRegular("RX packets:950381 errors:0 dropped:0 overruns:0 frame:0.");
+    checkRegular("RX packets: errors:150 d:)ropped:0 overruns:0 frame:0.");

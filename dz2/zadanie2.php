@@ -1,4 +1,9 @@
 <?php
+// Принято
+//
+// Замечания:
+// 1, break; после return; совершенно бесполезен
+// 2. return; внутри switch является плохим тоном из-за разбиения структуры функции
     $num = array(1 , 2 , 3 , 4 , 5);
     function name($numbers , $action ) {
         if (gettype($numbers) != 'array') {

@@ -1,4 +1,5 @@
 <?php
+// Принято
     function intonly ($int1, $int2) {
         if (gettype($int1) != 'integer' || gettype($int2) != 'integer') {
             echo "Переданы параметры неверного типа!";

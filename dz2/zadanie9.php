@@ -1,4 +1,5 @@
 <?php
+// Принято
     $name = "test.txt";
     $f = fopen($name , "w");
     $text = "Hello World";

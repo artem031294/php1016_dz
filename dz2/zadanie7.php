@@ -1,4 +1,5 @@
 <?php
+// Принято
     $string = "Карл у Клары украл Коллары";
     $string = preg_replace('/К+/', '', $string);
     echo $string . "<br>";

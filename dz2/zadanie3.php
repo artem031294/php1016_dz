@@ -1,4 +1,5 @@
 <?php
+// Принято
     function some() {
         $all = func_get_args();
         if (gettype($all[0]) != 'string') {
