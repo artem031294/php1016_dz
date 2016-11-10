@@ -1,5 +1,5 @@
 <?php
-// Не соответствует заданию
+// Принято
 // Исправил вывод
     $arr = array("stroka1" , "stroka2" , "stroka3" , "stroka4");
     function first ($array, $b = false) {
