@@ -1,4 +1,8 @@
 <?php
+//Предложенная вами строка вывела смайлик, не смог понять в чем некорректность.
+//Перечитал задание добавил вывод смайла в функцию
+
+
 // Не принято
 // Некорректная работа: "RX packets: errors:150 d:)ropped:0 overruns:0 frame:0."
     function checkRegular($string) {
@@ -11,9 +15,13 @@
 
         $value = intval($m[0]);
         if (preg_match("/:\)/", $string)) {
-            echo "&#9786;";
+            smile();
         } else if ($value > 1000) {
             echo "Сеть есть";
         }
     }
+	
+	function smile () {
+		echo "&#9786;";
+	}
     checkRegular("RX packets: errors:150 d:)ropped:0 overruns:0 frame:0.");
