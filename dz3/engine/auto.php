@@ -7,8 +7,8 @@ if (!empty($_POST)) {
 
         $login = mysqli_real_escape_string ($connection,$_POST["auto_login"]);
         $pwd = mysqli_real_escape_string ($connection,$_POST["auto_pwd"]);
-        echo $login . "  " . $pwd . "<br>";
-        $sql = "SELECT id FROM nodes WHERE login= ? AND pwd= ?";
+        echo gettype($login) . "  " . $pwd . "<br>";
+        $sql = "SELECT id FROM nodes WHERE (login= ? AND pwd= ?)";
 
         $stmt = $connection->prepare($sql);
         $stmt->bind_param('ss', $login, $pwd);
@@ -17,7 +17,6 @@ if (!empty($_POST)) {
         while($stmt->fetch()) {
             echo $res . "<br>";
         }
-        //$connection->query($sql) or die(mysqli_error($connection));
 
         //header('Location:' . SITE_PATH . 'dashboard.php', true, 303);
 
