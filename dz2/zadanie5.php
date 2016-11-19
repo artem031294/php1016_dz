@@ -4,6 +4,7 @@
 
 // Принято
     function one($string) {
+		$string = iconv('UTF-8', 'WINDOWS-1251', $string); 
         if (gettype($string) != 'string') {
             echo "Паарметр должен быть строкой";
             return;
@@ -34,4 +35,4 @@
 
     }
 
-    two("23455432");
+    two("ААА");
