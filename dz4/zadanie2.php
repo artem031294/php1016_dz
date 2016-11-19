@@ -33,39 +33,39 @@ compare($fname, $newfname);
 function compare($file1, $file2) {
     $data1 = json_decode(file_get_contents($file1),true);
     $data2 = json_decode(file_get_contents($file2),true);
+    echo "<pre>";
+    print_r($data2);
+    echo "<pre>";
 
-    if($result = array_diff(array_map('serialize',$data1), array_map('serialize',$data2))) {
+    echo "<pre>";
+    print_r(checkArr($data1,$data2));
+    echo "<pre>";
+   /* if($result = array_diff(array_map('serialize',$data1), array_map('serialize',$data2))) {
         //$result =  array_diff_assoc($data1, $data2);
         $pattern = '~"(.*?)(?:"|$)|([^"]+)~';
         $result = $result["users"];
        // preg_match_all($pattern, $result, $m, PREG_SET_ORDER);
-        $em = explode('"', $result);
-        $m = array();
-        for ($i = 0; $i < sizeof($em); $i++) {
-            if ($em[$i] === '') {continue;}
-            if ($i % 2 != 0) {
-                $m[] = array('elem' => $em[$i]);
-            }
-        }
-        $new_m = array();
-        $text = "";
-        $newText = "";
-        for ($i = 0; $i < sizeof($m); $i++) {
-            foreach ($m[$i] as $k => $v) {
-                if($i % 2 == 0) {
-                    $text= $v;
-                }
-                else {
-                    $newText = $v;
-                }
-                $new_m[$text] = $newText;
-            }
-        }
+
 
         echo "<pre>";
         print_r($m);
         echo "<pre>";
     } else {
         echo "Файлы одинаковые";
+    }*/
+}
+
+function checkArr($arr1, $arr2) {
+    $arr3 = array();
+    $arr4 = array();
+    foreach($arr1['users'] as $data=>$k) {
+        foreach ($k as $key=>$value) {
+            echo $arr2['users'][$data][$k][$key][$value];/*
+            if ($key[$value] != $arr2['users']['data'][$k][$key][$value]) {
+                $arr3['users']['data'][$k][$key]["'".$value."'"] = $arr2['users']['data'][$k][$key]["'".$value."'"];
+            }*/
+        }
     }
+
+    return $arr3;
 }
