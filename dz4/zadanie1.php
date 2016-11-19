@@ -1,4 +1,5 @@
 ﻿<?php
+// Принято
 $file = simplexml_load_file('data.xml');
 $out = "";
 

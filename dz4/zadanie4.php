@@ -1,4 +1,6 @@
 <?php
+// Принято
+// Обязательное задание: переделать на использование рекурсии
 $ch = curl_init();  
 $url = "https://en.wikipedia.org/w/api.php?action=query&titles=Main%20Page&prop=revisions&rvprop=content&format=json";
 

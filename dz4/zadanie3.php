@@ -1,4 +1,5 @@
 <?php
+// Принято
 $myArray = [];
 $fcsv = fopen("numbers.csv", "w");
 for ($i = 1; $i <= 100; $i++) {
@@ -9,6 +10,8 @@ for ($i = 1; $i <= 100; $i++) {
 fclose($fcsv);
 
 if (($handle = fopen("numbers.csv", "r")) !== FALSE) {
+	// Если в файле заведомо только 1 строка, while не нцжен
+	// Если в файле много строк, каждый круг цикла перетирает содержимое предыдущего круга
 	while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
 		$csvArray = $data;
 	}

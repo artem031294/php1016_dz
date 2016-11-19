@@ -1,4 +1,5 @@
 <?php
+// Принято
 $myArr = [];
 $myArr["users"]["1"] = array("name"=>"ivan","age"=>"20","job"=>"student");
 $myArr["users"]["2"] = array("name"=>"sergei","age"=>"22","job"=>"student");
