@@ -36,8 +36,11 @@ if (!empty($_POST)) {
     }
 }
 if (!empty($_POST) && !empty($_POST['logout'])) {
+    echo "DFDFF";
     if (isset($_SESSION['login'])) {
         session_destroy();
+        echo "DONE";
+        print_r($_SESSION);
     }
     header('Location:' . SITE_PATH . 'index.php');
 }
