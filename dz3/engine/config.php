@@ -10,3 +10,9 @@ $conn = new PDO(DB_DSN,DB_USER,DB_PWD);
 $conn->query(" SET NAMES 'utf8' ");
 
 define("SITE_PATH","/git/php1016_dz/dz3/");
+
+function userSession ($login, $id) {
+    session_start();
+    $_SESSION['login'] = $login;
+    $_SESSION['id'] = $id;
+}

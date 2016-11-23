@@ -20,7 +20,11 @@ if (!empty($_POST)) {
 //            var_dump($a);
 //            echo "<pre>";
             if ($a->pwd == $pwd) {
-                header('Location:' . SITE_PATH . 'dashboard.php', true, 303);
+                userSession($login, $a->id);
+                if ($_SESSION['authorized']<>1) {
+                    header('Location:' . SITE_PATH . 'dashboard.php', true, 303);
+                }
+
             } else {
                 die("Пароль неверный1");
             }
@@ -32,5 +36,8 @@ if (!empty($_POST)) {
     }
 }
 if (!empty($_POST) && !empty($_POST['logout'])) {
-
+    if (isset($_SESSION['login'])) {
+        session_destroy();
+    }
+    header('Location:' . SITE_PATH . 'index.php');
 }

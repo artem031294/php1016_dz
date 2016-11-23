@@ -1,3 +1,4 @@
+<?php session_start();?>
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -19,5 +20,8 @@
             </li>
         </ul>
     </header>
+    <div class="wrapper">
+        <div class="container"><?php print_r($_SESSION); ?></div>
+    </div>
 </body>
 </html>
