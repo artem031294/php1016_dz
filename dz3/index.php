@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -9,9 +10,12 @@
 
 	<body>
 		<header>
-		<h3 style="display:block; padding-left: 11%;">Система пользователей</h3>
+		<?php require_once ('template/header.php'); ?>
+		<div class="clear"></div>
+        <h3 style="display:block; padding-left: 11%;">Система пользователей</h3>
 		</header>
-		<div>
+        <?php if (!isset($_SESSION['id'])): ?>
+		<div class="wrapper">
 			<form method="POST" action="engine/registration.php">
 
 				<ul class="form-container">
@@ -40,5 +44,6 @@
 				</ul>
 			</form>
 		</div>
+    <?php endif; ?>
 	</body>
 </html>

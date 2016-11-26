@@ -26,7 +26,7 @@ if (!empty($_POST)) {
                 }
 
             } else {
-                die("Пароль неверный1");
+                die("Пароль неверный!");
             }
         }
     } catch(PDOException $e) {
@@ -35,12 +35,11 @@ if (!empty($_POST)) {
 
     }
 }
-if (!empty($_POST) && !empty($_POST['logout'])) {
-    echo "DFDFF";
-    if (isset($_SESSION['login'])) {
+if (!empty($_POST) && isset($_POST['logout'])) {
+    if (isset($_SESSION['id'])) {
+        unset($_SESSION['login']);
+        unset($_SESSION['id']);
         session_destroy();
-        echo "DONE";
-        print_r($_SESSION);
+        header('Location:' . SITE_PATH . 'index.php');
     }
-    header('Location:' . SITE_PATH . 'index.php');
 }

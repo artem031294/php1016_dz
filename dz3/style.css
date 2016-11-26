@@ -4,14 +4,35 @@ body {
      font: 14px Arial sans-serif;
      font-weight: 200;
  }
+
+ul {
+    list-style: none;
+}
+
 header {
     margin: 10px;
+}
+
+header .header-menu {
+    list-style: none;
+    float: left;
+}
+
+header .header-menu li {
+    display: inline-block;
+    border: 1px solid #ccc;
+    padding: 5px;
+}
+
+header .header-menu li a {
+    text-decoration: none;
 }
 
 header .right-menu {
     list-style: none;
     float: right;
 }
+
 form {
     display: block;
     float: left;
@@ -25,5 +46,9 @@ form .form-container li {
     display: block;
     min-height: 50px;
     width: 50px;
+}
+
+.clear {
+    clear: both;
 }
 
