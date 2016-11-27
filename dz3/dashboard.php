@@ -5,11 +5,6 @@
     <meta charset="utf-8" />
     <title>Личный кабинет</title>
     <link rel="stylesheet" href="style.css">
-    <script
-        src="https://code.jquery.com/jquery-3.1.1.min.js"
-        integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
-        crossorigin="anonymous"></script>
-    <script src="js/script.js"></script>
 </head>
 <body>
     <header>
@@ -21,10 +16,13 @@
     <?php } ?>
     <div class="wrapper">
         <div class="container">
-            <p><b>Имя:&nbsp;</b><span class="data"></span></p>
-            <p><b>Возраст:&nbsp;</b><span class="data"></span></p>
-            <p><b>О себе:&nbsp;</b><span class="data"></span></p>
+            <p><b>Имя:&nbsp;</b><span class="data" id="u_name" data-send="name"></span></p>
+            <p><b>Возраст:&nbsp;</b><span class="data" id="u_age" data-send="age"></span></p>
+            <p><b>О себе:&nbsp;</b><span class="data" id="u_about" data-send="about"></span></p>
         </div>
     </div>
+
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+<script src="js/script.js"></script>
 </body>
 </html>

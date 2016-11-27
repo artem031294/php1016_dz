@@ -1,5 +1,9 @@
 $(document).on("ready", function() {
-    var place = $(".data");
+
+    //var s = [ $('#u_name') , $('#u_age') , $('#u_about') ];
+    send($('#u_name').attr("data-send"));
+    send($('#u_age').attr("data-send"));
+    send($('#u_about').attr("data-send"));
 });
 
 function send(place) {
@@ -7,15 +11,16 @@ function send(place) {
     $.ajax({
         url: "./engine/out.php",
         method: "GET",
-        data: place,
+        data: 'out_names='+place,
         beforeSend: function() {
 
         },
         success: function(data) {
-
+            console.log( data );
+            $('.data[data-send="' + place +'"]').append(data);
         },
         error: function() {
-
+            $('.data[' + place +']').append(data);
         }
     });
 }
