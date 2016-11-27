@@ -29,7 +29,7 @@
             <p>Данные успещно записаны.</p>
         </div>
 
-        <?php header( "refresh:2;url=dashboard.php" ); } ?>
+        <?php header( "refresh:1.5;url=dashboard.php" ); } ?>
     </div>
 </div>
 <?php } ?>
