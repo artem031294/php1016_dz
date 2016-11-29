@@ -5,8 +5,6 @@ require_once 'config.php';
 if (!empty($_POST)) {
     if ((isset($_POST['auto_login']) && isset($_POST['auto_pwd'])) && (!empty($_POST['auto_login']) || !empty($_POST['auto_pwd']))) {
 
-        //$login = mysqli_real_escape_string ($connection,$_POST["auto_login"]);
-        //$pwd = mysqli_real_escape_string ($connection,$_POST["auto_pwd"]);
         $login = $_POST['auto_login'];
         $pwd = $_POST['auto_pwd'];
         try {
@@ -16,13 +14,10 @@ if (!empty($_POST)) {
         $stmt->execute(['login'=>$login]);
 
         while($a = $stmt->fetch(PDO::FETCH_LAZY)) {
-//            echo "<pre>";
-//            var_dump($a);
-//            echo "<pre>";
             if ($a->pwd == $pwd) {
                 userSession($login, $a->id);
                 if ($_SESSION['authorized']<>1) {
-                    header('Location:' . SITE_PATH . 'dashboard.php', true, 303);
+                    header('Location:/' . SITE_PATH . 'dashboard.php', true, 303);
                 }
 
             } else {
@@ -40,6 +35,6 @@ if (!empty($_POST) && isset($_POST['logout'])) {
         unset($_SESSION['login']);
         unset($_SESSION['id']);
         session_destroy();
-        header('Location:' . SITE_PATH . 'index.php');
+        header('Location:/' . SITE_PATH . 'index.php');
     }
 }

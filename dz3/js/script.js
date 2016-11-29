@@ -7,20 +7,18 @@ $(document).on("ready", function() {
 });
 
 function send(place) {
+
     place = place.toString();
     $.ajax({
-        url: "./engine/out.php",
+        url: "./engine/data-refactoring.php",
         method: "GET",
         data: 'out_names='+place,
-        beforeSend: function() {
-
-        },
         success: function(data) {
-            console.log( data );
             $('.data[data-send="' + place +'"]').append(data);
         },
         error: function() {
             $('.data[' + place +']').append(data);
         }
     });
+    return false;
 }

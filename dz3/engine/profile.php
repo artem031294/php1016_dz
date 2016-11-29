@@ -7,9 +7,9 @@ if (isset($_SESSION['id'])) {
 
         if (!empty($_POST['user_name']) || !empty($_POST['user_agr']) || !empty($_POST['user_info'])) {
 
-            $name = strip_tags ($_POST['user_name']);
-            $age = intval(strip_tags ($_POST['user_age']));
-            $info = strip_tags ($_POST['user_info']);
+            $name = htmlentities(strip_tags ($_POST['user_name']));
+            $age = (int) (htmlentities(strip_tags ($_POST['user_age'])));
+            $info = htmlentities(strip_tags ($_POST['user_info']));
             $login = $_SESSION['login'];
 
             $sql = 'UPDATE users SET name = ?, age = ?, about = ? WHERE login=\'' . $login  . '\'';

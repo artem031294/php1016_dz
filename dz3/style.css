@@ -9,6 +9,11 @@ ul {
     list-style: none;
 }
 
+img {
+    margin: 5px;
+    border: 1px solid gainsboro;
+}
+
 header {
     margin: 10px;
 }
@@ -50,5 +55,10 @@ form .form-container li {
 
 .clear {
     clear: both;
+}
+
+.container {
+    margin: 5px;
+    padding: 5px;
 }
 
