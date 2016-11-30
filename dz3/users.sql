@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: 127.0.0.1
--- Время создания: Ноя 17 2016 г., 14:36
+-- Время создания: Ноя 30 2016 г., 04:19
 -- Версия сервера: 10.1.8-MariaDB
 -- Версия PHP: 5.6.14
 
@@ -41,14 +41,15 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `login`, `pwd`, `name`, `age`, `about`, `photo`) VALUES
-(1, 'asd', 'asdasd', '', 0, '', ''),
+(1, 'asd', 'asdasd', 'ARTE', 12, 'sjkoasjhiajuaeygfmaehiwghkaeuwi', 'git/php1016_dz/dz3/photos/a2d.png'),
 (2, 'qweqwe', 'qweqweqwe', '', 0, '', ''),
 (3, '''as''', 'sad', '', 0, '', ''),
 (4, 'fsdsf=1;', 'gfgf', '', 0, '', ''),
 (5, 'aqwe', 'req', '', 0, '', ''),
 (6, 'adsf', '12345', '', 0, '', ''),
 (7, 'adsf', 'dfsdf', '', 0, '', ''),
-(8, 'artem', '12345', '', 0, '', '');
+(8, 'artem', '12345', '', 0, '', ''),
+(10, '123', 'as', '', 0, '', '');
 
 --
 -- Индексы сохранённых таблиц
@@ -68,7 +69,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT для таблицы `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
