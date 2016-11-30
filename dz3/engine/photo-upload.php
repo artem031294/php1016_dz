@@ -3,6 +3,18 @@ require_once 'config.php';
 
 $allowed =  array('gif','png' ,'jpg', 'jpeg');
 
+function writeAvatar ($path, $conn) {
+
+    $sql = 'UPDATE users SET photo="' . $path . '" WHERE login="' . $_SESSION['login'] . '"';
+
+    $stmt = $conn->prepare($sql);
+    if($stmt->execute()) {
+        $result = $path;
+    }
+
+    return $result;
+}
+
 if (!empty($_POST) && isset($_FILES['photo'])) {
     $filename = $_FILES['photo']['name'];
 
@@ -42,17 +54,4 @@ if (!empty($_GET) && isset($_GET['change_photo'])) {
     } else {
         echo "Empty filepath";
     }
-}
-
-
-function writeAvatar ($path, $conn) {
-
-    $sql = 'UPDATE users SET photo="' . $path . '" WHERE login="' . $_SESSION['login'] . '"';
-
-    $stmt = $conn->prepare($sql);
-    if($stmt->execute()) {
-        $result = $path;
-    }
-
-    return $result;
 }
