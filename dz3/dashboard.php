@@ -1,4 +1,9 @@
 <?php require_once 'engine/config.php';?>
+<?php
+if(!empty($_GET) && isset($_GET['ref'])) {
+    header('Location:/' . SITE_PATH . 'photos/');
+}
+?>
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -48,9 +53,3 @@
 <?php } ?>
 </body>
 </html>
-
-<?php
-if(!empty($_GET) && isset($_GET['ref'])) {
-    header('Location:/' . SITE_PATH . 'photos/');
-}
-?>
