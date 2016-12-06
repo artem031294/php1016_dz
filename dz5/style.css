@@ -1,0 +1,64 @@
+body {
+     margin: 0 auto;
+     padding: 0;
+     font: 14px Arial sans-serif;
+     font-weight: 200;
+ }
+
+ul {
+    list-style: none;
+}
+
+img {
+    margin: 5px;
+    border: 1px solid gainsboro;
+}
+
+header {
+    margin: 10px;
+}
+
+header .header-menu {
+    list-style: none;
+    float: left;
+}
+
+header .header-menu li {
+    display: inline-block;
+    border: 1px solid #ccc;
+    padding: 5px;
+}
+
+header .header-menu li a {
+    text-decoration: none;
+}
+
+header .right-menu {
+    list-style: none;
+    float: right;
+}
+
+form {
+    display: block;
+    float: left;
+    margin-right: 10%;
+}
+form .form-container {
+    margin: 10px;
+
+}
+form .form-container li {
+    display: block;
+    min-height: 50px;
+    width: 50px;
+}
+
+.clear {
+    clear: both;
+}
+
+.container {
+    margin: 5px;
+    padding: 5px;
+}
+
