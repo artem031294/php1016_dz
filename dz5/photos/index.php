@@ -20,7 +20,7 @@ $dat .= '</ul>'; ?>
 <head>
     <meta charset="utf-8" />
     <title>Картинки</title>
-    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../assets/template/style.css">
 
 </head>
 

@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <title>Изменение данных</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="assets/template/style.css">
 
 </head>
 <body>

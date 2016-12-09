@@ -1,10 +1,14 @@
-<?php session_start(); ?>
+<?php
+ini_set('display_errors', 1);
+require_once 'app/app.php';
+
+/*session_start(); ?>
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="utf-8" />
 		<title>Авторизация/Регистрация</title>
-		<link rel="stylesheet" href="style.css">
+		<link rel="stylesheet" href="assets/template/style.css">
 
 	</head>
 
@@ -47,3 +51,4 @@
     <?php endif; ?>
 	</body>
 </html>
+*/

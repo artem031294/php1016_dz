@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <title>Личный кабинет</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="assets/template/style.css">
 </head>
 <body>
     <header>
@@ -44,7 +44,7 @@
     </div>
 
 <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
-<script src="js/script.js"></script>
+<script src="assets/template/js/script.js"></script>
 <?php } ?>
 </body>
 </html>
