@@ -39,7 +39,7 @@ class Route {
         $action = $action_name;
 
         if (method_exists($controller, $action)) {
-            $controller->action();
+            $controller->$action();
         } else {
             self::ErrorPage404();
         }
