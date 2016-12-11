@@ -1,11 +1,12 @@
 <?php
+
 class Controller {
 
     public $model;
     public $view;
 
     public function __construct() {
-        $this->view = nev View();
+        $this->view = new View();
     }
 
     public function action_index() {

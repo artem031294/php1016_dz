@@ -30,7 +30,8 @@
 
 <div class="jumbotron">
     <div class="container">
-        <?php include 'app/views/'.$content_view;?>
+        {% block content %}
+        {% endblock %}
     </div>
 </div>
 
