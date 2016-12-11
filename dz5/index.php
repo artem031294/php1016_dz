@@ -1,7 +1,9 @@
 <?php
-ini_set('display_errors', 1);
-require_once 'app/app.php';
-
+//ini_set('display_errors', 1);
+//require_once 'app/app.php';
+echo '<pre>';
+print_r($_SERVER);
+echo '<pre>';
 /*session_start(); ?>
 <!DOCTYPE html>
 <html>
