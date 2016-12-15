@@ -5,6 +5,7 @@
     <title>Наш сайт</title>
     <link rel="stylesheet" href="/assets/template/css/bootstrap.css"/>
     <link rel="stylesheet" href="/assets/template/css/bootstrap-theme.css"/>
+    <link rel="stylesheet" href="/assets/template/css/style.css"/>
 </head>
 <body>
 

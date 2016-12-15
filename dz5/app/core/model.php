@@ -1,6 +1,6 @@
 <?php
-class Model {
-    public function get_data() {
 
-    }
+class Model {
+    
+    public function get_data(){}
 }

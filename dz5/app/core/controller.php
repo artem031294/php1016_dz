@@ -5,11 +5,12 @@ class Controller {
     public $model;
     public $view;
 
-    public function __construct() {
+    function __construct()
+    {
         $this->view = new View();
     }
 
-    public function action_index() {
+    function action_index(){
 
     }
 
