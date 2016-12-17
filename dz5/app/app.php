@@ -7,5 +7,8 @@ require_once 'core/db.php';
 
 Route::start();
 
-$result = DBase::getInstance()->querySql('SELECT login FROM users');
+
+$result = DBase::getInstance()->querySql('SELECT * FROM users');
+echo "<pre>";
 print_r($result);
+echo "<pre>";
