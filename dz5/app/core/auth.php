@@ -41,13 +41,19 @@ class User {
 
     public function logout() {
         if (!empty($_SESSION["id"])) {
-            unset($_SESSION["id"];
-            unset($_SESSION["login"];
+            $this->session_destroy();
         }
     }
 
+    public function session_destroy() {
+        foreach($_SESSION as $key => $val) {
+            unset($key[$val]);
+        }
+        return session_destroy();
+    }
+
     public function existUser($username) {
-        $query = "select logn from users where login = :username limit 1";
+        $query = "select login from users where login = :username limit 1";
         $stmt = $this->db->prepare($query);
         $stmt->execute(
             array(
