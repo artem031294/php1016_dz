@@ -37,7 +37,6 @@ header .right-menu {
     list-style: none;
     float: right;
 }
-
 form {
     display: block;
     float: left;
@@ -52,7 +51,6 @@ form .form-container li {
     min-height: 50px;
     width: 50px;
 }
-
 .clear {
     clear: both;
 }

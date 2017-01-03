@@ -2,8 +2,6 @@
 
 class Route {
 
-
-
     public static function start() {
 
         $controller_name = 'Main';

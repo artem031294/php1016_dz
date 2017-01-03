@@ -1,6 +1,7 @@
 <?php
-ini_set('display_errors', true);
-//echo "<pre>";
-//var_dump($_SERVER);
-//echo "<pre>";
+ini_set('display_errors', 1);
 require_once('app/all.php');
+
+
+//echo '<pre>';
+//print_r($_SERVER);
