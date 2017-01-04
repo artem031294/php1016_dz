@@ -22,15 +22,18 @@ class Controller_Login extends Controller
 
                     $this->user = new Model_User($login, $id);
                     $this->user->log_in();
+                    //$this->view->generate('login_view.php', 'template_view.php', $this->user->log_in());
                     header('Location:/dash/');
                 } else {
-                    Route::ErrorPage404();
+                    //$this->view->generate('login_view.php', 'template_view.php');
+                    print_r("Неверная пара логин и пароль.");
+                    header( "refresh:1.5;url=main" );
                 }
             } else {
                 echo("Ошибка доступа к БД.");
                 return false;
             }
-            $this->view->generate('login_view.php', 'template_view.php', $this->user->log_in());
+            //$this->view->generate('login_view.php', 'template_view.php', $this->user->log_in());
             return true;
         }
 

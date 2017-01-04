@@ -1,4 +1,5 @@
 <?php
+require_once 'app/models/model_user.php';
 class Controller_Register extends Controller
 {
     public $user;
@@ -14,24 +15,28 @@ class Controller_Register extends Controller
             $q = 'SELECT login FROM users WHERE login="'.  $login .'"';
             $r = Model_Db::getInstance()->querySql($q);
 
-            if(!empty($r['login'])) return "Такой пользователь уже есть.";
+            if(!empty($r[0]['login'])) {
+                print_r("Такой пользователь уже есть.");
+                header( "refresh:1.5;url=main" );
+            }
+            else {
+                $query = 'INSERT INTO users (login,pwd) VALUES (' . $login . ',' . $pwd . ')';
+                $res = Model_Db::getInstance()->querySql($query, true);
 
-            $query = 'INSERT INTO users (login,pwd) VALUES ({$login}, {$pwd})';
-            $res = Model_Db::getInstance()->querySql($query);
+                $q = 'SELECT id FROM users WHERE login="' . $login . '"';
+                $r = Model_Db::getInstance()->querySql($q);
 
-            $q = 'SELECT id FROM users WHERE login="'.  $login .'"';
-            $r = Model_Db::getInstance()->querySql($q);
+                if (is_array($r)) {
+                    $id = $r[0]['id'];
+                    $this->user = new Model_User($login, $id);
+                    $this->user->log_in();
+                    //header('Location:/dash/');
 
-            if (is_array($r)) {
-                $id = $r['id'];
-                $this->user = new Model_User($login, $id);
-                $this->user->log_in();
-                header('Location:/dash/');
-
-                $this->view->generate('login_view.php', 'template_view.php', $this->user->log_in());
-                return true;
-            } else {
-                Route::ErrorPage404();
+                    $this->view->generate('login_view.php', 'template_view.php', $this->user->log_in());
+                    return true;
+                } else {
+                    Route::ErrorPage404();
+                }
             }
         }
 

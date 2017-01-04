@@ -28,8 +28,8 @@ class Model_Db extends Model {
         return self::$instance;
     }
 
-    public function querySql($query) {
+    public function querySql($query, $ret=false) {
         $result = $this->conn->query($query);
-        return $result->fetchAll(PDO::FETCH_ASSOC);
+        if($ret == false) return $result->fetchAll(PDO::FETCH_ASSOC);
     }
 }
