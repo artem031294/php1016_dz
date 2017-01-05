@@ -6,8 +6,6 @@ class Controller_Login extends Controller
     public $user;
     function action_index()
     {
-
-
         if(isset($_POST['auto_login']) && isset($_POST['auto_pwd']))
         {
             $login = strip_tags($_POST['auto_login']);

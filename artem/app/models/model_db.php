@@ -32,4 +32,9 @@ class Model_Db extends Model {
         $result = $this->conn->query($query);
         if($ret == false) return $result->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    public function __destruct()
+    {
+        $this->conn = null;
+    }
 }
