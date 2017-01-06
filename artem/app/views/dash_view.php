@@ -20,11 +20,16 @@
 </table>
 <hr>
 <div class="container">
-    <h4>Новая аватарка:</h4>
+    <div class="h4">Новая аватарка</div>
     <form enctype="multipart/form-data" action="upload" method="post">
-        <input type="hidden" name="MAX_FILE_SIZE" value="30000000" />
-        Загрузить аватар: <input name="photo" type="file" />
-        <input type="submit" value="Загрузить" />
+        <div class="form-group">
+            <input type="hidden" name="MAX_FILE_SIZE" value="30000000" />
+            <label for="file">Загрузить аватар:</label>
+            <input id="file" name="photo" type="file" />
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Загрузить" />
+        </div>
     </form>
     <!--
     <form action="exist" method="get">

@@ -13,11 +13,11 @@ class Controller_Dash extends Controller {
     }
 
     function action_upload() {
-        print_r($_POST);
         $allowed =  array('gif','png' ,'jpg', 'jpeg');
-        if(isset($_POST['photo']) && !empty($_POST['photo'])) {
-            //$this->view->generate("dash_view.php", "template_view.php", $_POST);
-            /*
+        if(isset($_FILES['photo']) && !empty($_POST)) {
+            if(empty($_SESSION)) session_start();
+            //$this->view->generate("dash_view.php", "template_view.php");
+
             $filename = $_FILES['photo']['name'];
             $ext = pathinfo($filename, PATHINFO_EXTENSION);
 
@@ -35,13 +35,13 @@ class Controller_Dash extends Controller {
                 $user = $_SESSION['login'];
 
                 if (move_uploaded_file($_FILES['photo']['tmp_name'], $upload_file)) {
-                    $query = "INSERT INTO files (path, data, owner) VALUES ('$upload_file' , '$blob' , '$user')";
+                    $query = "INSERT INTO photos (path, data, owner) VALUES ('$upload_file' , '$blob' , '$user')";
                     Model_Db::getInstance()->querySql($query, true);
                 } else {
                     echo "ALARM!!\n Ограничение 3МБ";
+                    header('refresh:1.5;url=dash');
                 }
             }
-            */
         }
     }
 }
