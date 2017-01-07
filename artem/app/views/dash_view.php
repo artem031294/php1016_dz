@@ -4,19 +4,23 @@
 //    var_dump($_SESSION);
 //    echo'<pre>'?>
 <?php if(is_array($data)) : ?>
-<table>
-    <tr>
-        <td>Аватарка</td>
-        <td>Имя</td>
-        <td>Возраст</td>
-        <td>О себе</td>
-    </tr>
-    <tr>
-        <td><img src="http://localhost/<?php echo $data[0]['photo']?>" alt="" width="100px" height="auto"></td>
-        <td><?php echo $data[0]['name']?></td>
-        <td><?php echo $data[0]['age']?></td>
-        <td><?php echo $data[0]['about']?></td>
-    </tr>
+<table class="table table-stripped table-bordered">
+    <thead>
+        <tr>
+            <th>Аватарка</th>
+            <th>Имя</th>
+            <th>Возраст</th>
+            <th>О себе</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><img src="http://localhost/<?php echo $data[0]['photo']?>" alt="" width="100px" height="auto"></td>
+            <td><?php echo $data[0]['name']?></td>
+            <td><?php echo $data[0]['age']?></td>
+            <td><?php echo $data[0]['about']?></td>
+        </tr>
+    </tbody>
 </table>
 <hr>
 <div class="container">

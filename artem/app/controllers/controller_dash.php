@@ -15,7 +15,13 @@ class Controller_Dash extends Controller {
     function action_upload() {
         $allowed =  array('gif','png' ,'jpg', 'jpeg');
         if(isset($_FILES['photo']) && !empty($_POST)) {
+            $nameCheck = '/[^a-z0-9]+/u';
+            if (!preg_match($nameCheck, $_FILES['photo']['name'])) {
+                die('Имя файла должно содержать только латинские символы.');
+            }
             if(empty($_SESSION)) session_start();
+            $user = $_SESSION['login'];
+
             //$this->view->generate("dash_view.php", "template_view.php");
 
             $filename = $_FILES['photo']['name'];
@@ -23,7 +29,7 @@ class Controller_Dash extends Controller {
 
             if(!in_array(strtolower($ext),$allowed) ) {
                 echo 'Запрещенный тип файлов.';
-                header( "refresh:1.5;url=dash" );
+                header( "refresh:1.5;url=/dash/");
             } else {
                 $upload_dir = './photos/';
                 if (!is_dir($upload_dir)) {
@@ -32,16 +38,37 @@ class Controller_Dash extends Controller {
                 $upload_file = $upload_dir . basename($filename);
 
                 $blob = fopen($upload_file, 'r');
-                $user = $_SESSION['login'];
 
                 if (move_uploaded_file($_FILES['photo']['tmp_name'], $upload_file)) {
-                    $query = "INSERT INTO photos (path, data, owner) VALUES ('$upload_file' , '$blob' , '$user')";
-                    Model_Db::getInstance()->querySql($query, true);
+                    $this->model->file_upload($upload_file, $blob, $user);
+                    echo 'Файл загружен';
+                    header( "refresh:1.5;url=/dash/");
                 } else {
                     echo "ALARM!!\n Ограничение 3МБ";
-                    header('refresh:1.5;url=dash');
+                    header( "refresh:1.5;url=/dash/");
                 }
             }
         }
+    }
+
+    function action_allInfo() {
+        if (empty($_SESSION)) session_start();
+        $owner = strip_tags($_SESSION['login']);
+        $data = array();
+
+        $query1 = 'SELECT path, owner FROM photos WHERE owner="' . $owner .'"';
+        $query2 = 'SELECT age, login FROM users';
+        $data['file'] = $this->model->get_allInfo($query1);
+        $data['users'] = $this->model->get_allInfo($query2);
+
+        $routes = explode('/', $_SERVER['DOCUMENT_ROOT']);
+        array_shift($routes);
+        array_shift($routes);
+        array_shift($routes);
+        $routes = implode('/', $routes);
+        $data['route'] = $routes;
+        $data['user'] = $_SESSION['login'];
+
+        $this->view->generate("allInfo_view.php", "template_view.php", $data);
     }
 }

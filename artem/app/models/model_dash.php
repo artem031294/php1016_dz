@@ -19,4 +19,15 @@ class Model_Dash extends Model
             return "Ошибка связи с БД";
         }
     }
+
+    public function file_upload($file, $data, $user)
+    {
+        $query = "INSERT INTO photos (path, data, owner) VALUES ('$file' , '$data' , '$user')";
+        Model_Db::getInstance()->querySql($query, true);
+        return true;
+    }
+
+    public function get_allInfo($q) {
+        return Model_Db::getInstance()->querySql($q);
+    }
 }

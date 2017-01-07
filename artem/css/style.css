@@ -12,8 +12,16 @@ ul {
 img {
     margin: 5px;
     border: 1px solid gainsboro;
+    max-width:200px!important;
+    height: auto;
 }
 
+table, thead {
+    text-align: center!important;
+}
+table>tbody>tr>td {
+    vertical-align: baseline!important;
+}
 header {
     margin: 10px;
 }

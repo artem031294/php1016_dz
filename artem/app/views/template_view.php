@@ -1,4 +1,4 @@
-<?php session_start(); ?>
+<?php if(empty($_SESSION)) session_start(); ?>
 <!DOCTYPE html>
     <html lang="ru">
     <head>
@@ -21,6 +21,7 @@
                     <ul class="nav navbar-nav">
                         <li><a href="/">Главная</a></li>
                         <li><a href="/dash/">Личный кабинет</a></li>
+                        <li><a href="/dash/allInfo">Информация</a></li>
                         <li><a href="/portfolio/">Портфолио</a></li>
                         <li><a href="/contact/">Контакты</a></li>
                     </ul>

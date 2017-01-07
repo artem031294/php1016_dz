@@ -10,7 +10,7 @@ class Model_Db extends Model {
 
     private function __construct() {
         try {
-            $this->conn = new pdo("mysql:host=".$this->host.";dbname=".$this->db_name.";charset=utf8", $this->user, $this->pwd);
+            $this->conn = new pdo("mysql:host=".$this->host.";dbname=".$this->db_name.";charset=utf8", $this->user, $this->pwd, array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));
         } catch (PDOException $e) {
             echo $e->getMessage();
         }
@@ -29,8 +29,12 @@ class Model_Db extends Model {
     }
 
     public function querySql($query, $ret=false) {
-        $result = $this->conn->query($query);
-        if($ret == false) return $result->fetchAll(PDO::FETCH_ASSOC);
+        try {
+            $result = $this->conn->query($query);
+            if ($ret == false) return $result->fetchAll(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            return $e->getMessage();
+        }
     }
 
     public function __destruct()
