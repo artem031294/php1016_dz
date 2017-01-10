@@ -6,6 +6,8 @@
         <title>Главная</title>
         <link rel="stylesheet" href="/css/style.css">
         <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+        <script src='https://www.google.com/recaptcha/api.js'></script>
     </head>
     <body>
         <nav class="navbar navbar-inverse navbar-fixed-top">

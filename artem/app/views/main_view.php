@@ -10,6 +10,7 @@
             <li>
                 <input type="password" name="reg_pwd" placeholder="Пароль"/>
             </li>
+            <div class="g-recaptcha" data-sitekey="6LcbWhEUAAAAAHwdpTJr965qqi9d3skCPJPp11vj"></div>
             <input type="submit" name="reg_go" value="Регистрация" />
         </ul>
     </form>
