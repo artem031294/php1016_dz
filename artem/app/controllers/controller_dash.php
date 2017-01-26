@@ -71,4 +71,19 @@ class Controller_Dash extends Controller {
 
         $this->view->generate("allInfo_view.php", "template_view.php", $data);
     }
+
+    function action_changeInfo() {
+        if(empty($_SESSION)) session_start();
+        $owner = $_SESSION['login'];
+
+        if(isset($_POST['age']) && isset($_POST['about']) && !empty($_POST['age'])) {
+            $age = htmlentities($_POST['age']);
+            $about = htmlentities($_POST['about']);
+            $query = 'UPDATE users SET age="' . $age . '", about="' . $about . '" WHERE login="' . $owner . '"';
+            $this->model->change_info($query);
+            header("refresh:1.5;url=/dash/");
+        }
+
+        return false;
+    }
 }

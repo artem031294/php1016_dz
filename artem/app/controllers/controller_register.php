@@ -6,7 +6,7 @@ class Controller_Register extends Controller
     public $user;
     function action_index()
     {
-        
+
         if(isset($_POST['reg_login']) && !empty($_POST['reg_login']) && isset($_POST['reg_pwd']) && !empty($_POST['reg_pwd']))
         {
             $login = strip_tags($_POST['reg_login']);

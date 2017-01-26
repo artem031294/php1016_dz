@@ -15,13 +15,26 @@
     </thead>
     <tbody>
         <tr>
-            <td><img src="http://localhost/<?php echo $data[0]['photo']?>" alt="" width="100px" height="auto"></td>
+            <td><img src="http://localhost/<?php echo str_split($data[0]['photo'],2);?>" alt="" width="100px" height="auto"></td>
             <td><?php echo $data[0]['name']?></td>
             <td><?php echo $data[0]['age']?></td>
             <td><?php echo $data[0]['about']?></td>
         </tr>
     </tbody>
 </table>
+    <div class="container">
+        <form action="changeInfo" method="post">
+            <div class="form-group">
+                <label for="age">Укажите возраст:</label>
+                <input id="age" name="age" type="text" />
+                <label for="about">О себе:</label>
+                <textarea id="about" name="about" rows="7"></textarea>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Изменить данные" />
+            </div>
+        </form>
+    </div>
 <hr>
 <div class="container">
     <div class="h4">Новая аватарка</div>

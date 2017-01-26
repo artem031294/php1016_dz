@@ -22,12 +22,19 @@ class Model_Dash extends Model
 
     public function file_upload($file, $data, $user)
     {
+        if(empty($_SESSION)) session_start();
         $query = "INSERT INTO photos (path, data, owner) VALUES ('$file' , '$data' , '$user')";
+        $query1 = "UPDATE users SET photo='" . $file . "' WHERE login='" . $_SESSION['login'] . "'";
         Model_Db::getInstance()->querySql($query, true);
+        Model_Db::getInstance()->querySql($query1, true);
         return true;
     }
 
     public function get_allInfo($q) {
         return Model_Db::getInstance()->querySql($q);
+    }
+
+    public function change_info($q) {
+        return Model_Db::getInstance()->querySql($q, true);
     }
 }
