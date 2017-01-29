@@ -17,6 +17,16 @@ $capsule->addConnection([
 $capsule->setAsGlobal();
 $capsule->bootEloquent();
 
+class User extends Illuminate\Database\Eloquent\Model {
+
+}
+
+class Post extends Illuminate\Database\Eloquent\Model {
+
+}
+
+$users = User::all();
+
 class Model_Db extends Model {
     private $host= 'localhost';
     private $user = 'root';
