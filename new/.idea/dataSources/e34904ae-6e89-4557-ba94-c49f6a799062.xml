@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="MySQL - new@localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="2.6">
+    <schema id="1" name="new">
+      <visible>1</visible>
+    </schema>
+    <schema id="2" name="calc"/>
+    <schema id="3" name="information_schema"/>
+    <schema id="4" name="masterrisk"/>
+    <schema id="5" name="mysql"/>
+    <schema id="6" name="performance_schema"/>
+    <schema id="7" name="phpls1016"/>
+    <schema id="8" name="phpmyadmin"/>
+    <schema id="9" name="sql"/>
+    <schema id="10" name="test"/>
+    <schema id="11" name="users"/>
+    <schema id="12" name="vc"/>
+  </database-model>
+</dataSource>
